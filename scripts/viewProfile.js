@@ -1,0 +1,1 @@
+// Lógica para buscar e exibir o perfil público
