@@ -1,0 +1,1 @@
+// Lógica de autenticação Firebase aqui
