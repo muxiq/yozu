@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCEGoJkW1hwoXZSq3N1HIn3igPlf2pEUIw",
@@ -13,13 +13,14 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// Exemplo: criar conta e enviar verificação
-window.createAccount = function(email, password) {
-  createUserWithEmailAndPassword(auth, email, password)
+window.criarConta = function () {
+  const email = document.getElementById("email").value;
+  const senha = document.getElementById("senha").value;
+  createUserWithEmailAndPassword(auth, email, senha)
     .then((userCredential) => {
       const user = userCredential.user;
       sendEmailVerification(user).then(() => {
-        alert("Email de verificação enviado. Verifique sua caixa de entrada.");
+        alert("Verifique seu e-mail antes de continuar.");
       });
     })
     .catch((error) => {
@@ -27,15 +28,16 @@ window.createAccount = function(email, password) {
     });
 };
 
-// Exemplo: login bloqueado sem verificação
-window.login = function(email, password) {
-  signInWithEmailAndPassword(auth, email, password)
+window.login = function () {
+  const email = document.getElementById("email").value;
+  const senha = document.getElementById("senha").value;
+  signInWithEmailAndPassword(auth, email, senha)
     .then((userCredential) => {
       const user = userCredential.user;
       if (user.emailVerified) {
-        alert("Login bem-sucedido!");
+        window.location.href = "painel.html";
       } else {
-        alert("Verifique seu e-mail antes de fazer login.");
+        alert("Você precisa verificar seu e-mail para continuar.");
       }
     })
     .catch((error) => {
