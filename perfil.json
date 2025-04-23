@@ -1,0 +1,9 @@
+{
+  "name": "Nezay",
+  "bio": "Streamer e jogador casual",
+  "avatar": "https://i.imgur.com/abc123.png",
+  "links": [
+    { "name": "Discord", "url": "https://discord.gg/seulink" },
+    { "name": "Instagram", "url": "https://instagram.com/nz4" }
+  ]
+}

@@ -1,0 +1,54 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  transition: background 0.3s, color 0.3s;
+}
+
+:root {
+  --bg: #ffffff;
+  --text: #000000;
+}
+
+.dark {
+  --bg: #121212;
+  --text: #ffffff;
+}
+
+.container {
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.links a {
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  background: #eee;
+  border-radius: 8px;
+  color: inherit;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.links a:hover {
+  background: #ddd;
+}
+
+#toggleTheme {
+  margin-top: 2rem;
+  padding: 8px 16px;
+}
